@@ -45,7 +45,18 @@ a.buy-btn {
     font-size: 30px;
 }
 
-
+  /* Make product-info-tab sticky */
+    .product-info-tab {
+      position: sticky;
+      top: 60px; /* Adjust this based on your navbar height */
+      z-index: 10;
+    }
+    /* Make product-rating sticky */
+    .product-rating {
+      position: sticky;
+      top: 60px; /* Adjust this based on your navbar height */
+      z-index: 10;
+    }
 	section.product-short-info {
     margin-top: 80px;
 }
