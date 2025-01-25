@@ -1,0 +1,15 @@
+
+@media screen and (max-width: 991px) {
+img.main-logo.web-logo {
+    display: none;
+}
+img.main-logo.mobile-logo {
+    display: block;
+}
+section.banner-section {
+    padding: 57px 0 0 0px !important;
+}
+.inner-page-title{
+    margin: 57px 0 0 0px !important;
+}
+}
