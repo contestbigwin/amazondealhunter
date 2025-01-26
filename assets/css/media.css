@@ -23,4 +23,17 @@ section.banner-section {
     width: 100%;
     margin: 0 0 25px 0;
 }
+section.product-short-info img.product-img {
+    margin-bottom: 15px;
+}
+section.product-short-info a.buy-btn {
+    width: 92%;
+    text-align: center;
+    margin: 15px auto;
+    float: none;
+    display: block;
+}
+section.product-short-info {
+    margin-top: 60px;
+}
 }
