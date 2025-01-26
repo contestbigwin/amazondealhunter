@@ -179,7 +179,7 @@ a.buy-btn {
 
 .product-main-info h2 {
     color: #000;
-    font-size: 26px;
+    font-size: 26px;    margin: 0 0 7px 0;
 }
 
 /***********************review box start*************/
@@ -240,4 +240,18 @@ img.main-logo.mobile-logo {
 }
 img.best-seller {
     width: 160px;
+}
+a.cta {
+    background: rgb(241 241 241);
+    padding: 3px 10px;
+    margin-top: 6px;
+    display: inline-block;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #323232;
+    border: 1px solid #323232;
+}
+.product-rating-2 {
+    float: left;
+    display: none;
 }
