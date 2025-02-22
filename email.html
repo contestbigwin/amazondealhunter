@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS Public Key
+        })();
+
+        function placeOrder() {
+            let productItem = document.getElementById('productItem').value;
+            let mobileNumber = document.getElementById('mobileNumber').value;
+            let address = document.getElementById('address').value;
+            let amount = "100"; 
+
+            if (!productItem || !mobileNumber || !address) {
+                alert("Please fill all the fields.");
+                return;
+            }
+
+            let templateParams = {
+                to_email: "amazondealhunter83@gmail.com",
+                product_item: productItem,
+                mobile: mobileNumber,
+                address: address,
+                amount: amount
+            };
+
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+            .then(function(response) {
+                alert("Order Placed Successfully! Email Sent.");
+                console.log("SUCCESS!", response.status, response.text);
+            }, function(error) {
+                alert("Failed to send email. Please try again.");
+                console.log("FAILED...", error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Order Form</h2>
+    <label>Product Item:</label>
+    <input type="number" id="productItem" min="1" value="1"><br><br>
+
+    <label>Mobile Number:</label>
+    <input type="number" id="mobileNumber"><br><br>
+
+    <label>Address:</label>
+    <textarea id="address"></textarea><br><br>
+
+    <label>Amount:</label>
+    <input type="text" value="$100" disabled><br><br>
+
+    <button onclick="placeOrder()">Place Order</button>
+</body>
+</html>
