@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
-            emailjs.init("service_9i9swhx"); // Replace with your EmailJS Public Key
+            emailjs.init("v_Yf7O4eYMPRMJntk"); // Replace with your EmailJS Public Key
         })();
 
         function placeOrder() {
@@ -29,7 +29,7 @@
                 amount: amount
             };
 
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+            emailjs.send("service_9i9swhx", "template_prc3yeg", templateParams)
             .then(function(response) {
                 alert("Order Placed Successfully! Email Sent.");
                 console.log("SUCCESS!", response.status, response.text);
@@ -58,5 +58,7 @@
 </body>
 </html>
 
+<!-- Service ID : service_9i9swhx -->
+<!-- YOUR_TEMPLATE_ID : template_prc3yeg -->
 
-
+<!-- EmailJS Public Key : v_Yf7O4eYMPRMJntk -->
