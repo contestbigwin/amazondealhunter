@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Place Order</title> 
+    <title>Place Order</title>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
-            emailjs.init("v_Yf7O4eYMPRMJntk"); // Replace with your EmailJS Public Key
+            emailjs.init("v_Yf7O4eYMPRMJntk"); // Your EmailJS Public Key
         })();
 
-        function placeOrder() {
+        function sendEmail() {
             let productItem = document.getElementById('productItem').value;
             let mobileNumber = document.getElementById('mobileNumber').value;
             let address = document.getElementById('address').value;
-            let amount = "100"; 
+            let amount = "100"; // Fixed amount
 
+            // Validation: Check if fields are empty
             if (!productItem || !mobileNumber || !address) {
-                alert("Please fill all the fields.");
+                alert("❌ Please fill all the fields.");
                 return;
             }
 
             let templateParams = {
-                to_email: "amazondealhunter83@gmail.com",
                 product_item: productItem,
                 mobile: mobileNumber,
                 address: address,
@@ -31,34 +31,36 @@
 
             emailjs.send("service_9i9swhx", "template_prc3yeg", templateParams)
             .then(function(response) {
-                alert("Order Placed Successfully! Email Sent.");
+                alert("✅ Order Placed Successfully! Email Sent.");
                 console.log("SUCCESS!", response.status, response.text);
             }, function(error) {
-                alert("Failed to send email. Please try again.");
-                console.log("FAILED...", error);
+                alert("❌ Failed to send email. Please try again.");
+                console.error("EmailJS Error:", error);
             });
         }
     </script>
 </head>
 <body>
     <h2>Order Form</h2>
+    
     <label>Product Item:</label>
     <input type="number" id="productItem" min="1" value="1"><br><br>
 
     <label>Mobile Number:</label>
-    <input type="number" id="mobileNumber"><br><br>
+    <input type="number" id="mobileNumber" required><br><br>
 
     <label>Address:</label>
-    <textarea id="address"></textarea><br><br>
+    <textarea id="address" required></textarea><br><br>
 
     <label>Amount:</label>
     <input type="text" value="$100" disabled><br><br>
 
-    <button onclick="placeOrder()">Place Order</button>
+    <button onclick="sendEmail()">Place Order</button>
 </body>
 </html>
 
-<!-- Service ID : service_9i9swhx -->
-<!-- YOUR_TEMPLATE_ID : template_prc3yeg -->
 
-<!-- EmailJS Public Key : v_Yf7O4eYMPRMJntk -->
+ <!-- Service ID : service_9i9swhx  -->
+ <!-- YOUR_TEMPLATE_ID : template_prc3yeg  -->
+
+<!-- EmailJS Public Key : v_Yf7O4eYMPRMJntk  -->
